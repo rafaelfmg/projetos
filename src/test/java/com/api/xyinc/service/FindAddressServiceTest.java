@@ -1,5 +1,7 @@
 package com.api.xyinc.service;
 
+import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -8,6 +10,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
 import com.api.xyinc.controller.AddressController;
+import com.api.xyinc.domain.Address;
 import com.api.xyinc.service.impl.FindAddressServiceImpl;
 
 public class FindAddressServiceTest {
@@ -43,12 +46,14 @@ public class FindAddressServiceTest {
 
 	@Test
     public void testFindByAddressNotFound() {
-        Assert.assertNotNull(service.findByAddress("pacheco"));
+	    List<Address> adList = service.findByAddress("pacheco");
+        Assert.assertTrue(adList.isEmpty());
     }
 
     @Test
     public void testFindByZipCodeNotFound() {
-        Assert.assertNotNull(service.findByZipCode("10"));
+        List<Address> adList = service.findByZipCode("10");
+        Assert.assertTrue(adList.isEmpty());
     }
 
 }

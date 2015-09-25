@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class WsApplication {
+public class SearchAddressApplication {
 
     public static void main(final String[] args) {
-         SpringApplication.run(WsApplication.class, args);
+         SpringApplication.run(SearchAddressApplication.class, args);
 
     }
 }
