@@ -1,15 +1,14 @@
 package com.apicep.xyinc.service;
 
 import org.junit.Assert;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 
-import com.apicep.xyinc.controller.AddressController;
-import com.apicep.xyinc.service.impl.FindAddressServiceImpl;
+import com.api.xyinc.controller.AddressController;
+import com.api.xyinc.service.impl.FindAddressServiceImpl;
 
 public class FindAddressServiceTest {
 
@@ -41,5 +40,5 @@ public class FindAddressServiceTest {
 	public void testFindByZipCode() {
 		Assert.assertNotNull(service.findByZipCode(zipCode));
 	}
-	
+
 }

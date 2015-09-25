@@ -2,8 +2,6 @@ package com.apicep.xyinc.controller;
 
 import java.io.IOException;
 
-import javax.validation.ValidationException;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.InjectMocks;
@@ -11,11 +9,12 @@ import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
 
-import com.apicep.xyinc.service.FindAddressService;
+import com.api.xyinc.controller.AddressController;
+import com.api.xyinc.service.FindAddressService;
 
 public class AddressControllerTest {
 
-	
+
 	@Mock
 	private FindAddressService service;
 	@InjectMocks
@@ -42,11 +41,11 @@ public class AddressControllerTest {
 		Mockito.verify(service).findByAddress(addressDescription);
 	}
 
-	@Test(expected = IOException.class)
+	@Test(expected = Exception.class)
 	public void testGetAddressByDescriptionWithError() {
 		controller.getAddressByDescription(null);
 	}
-	
+
 	@Test
 	public void testGetAddressByZipCode() {
 		controller.getAddressByZipCode(zipCode);
@@ -57,5 +56,5 @@ public class AddressControllerTest {
 	public void testGetAddressByZipCodeWithError() {
 		controller.getAddressByZipCode(null);
 	}
-	
+
 }

@@ -19,7 +19,7 @@
 
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<start-class>com.apicep.xyinc.WsApplication</start-class>
+		<start-class>com.api.xyinc.WsApplication</start-class>
 		<java.version>1.8</java.version>
 		<lombok.version>1.14.8</lombok.version>
 		<commons.lang3.version>3.3.2</commons.lang3.version>
