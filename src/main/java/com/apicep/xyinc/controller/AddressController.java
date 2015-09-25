@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.apicep.xyinc.domain.Address;
-import com.apicep.xyinc.ws.service.FindAddressService;
+import com.apicep.xyinc.service.FindAddressService;
 
 
 @Controller

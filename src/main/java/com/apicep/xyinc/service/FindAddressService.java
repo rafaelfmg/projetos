@@ -1,0 +1,11 @@
+package com.apicep.xyinc.service;
+
+import java.util.List;
+
+import com.apicep.xyinc.domain.Address;
+
+public interface FindAddressService {
+
+    public List<Address> findByZipCode(String zipCode);
+    public List<Address> findByAddress(String addressDescription);
+}
