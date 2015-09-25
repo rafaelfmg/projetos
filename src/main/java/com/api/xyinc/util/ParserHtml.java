@@ -13,7 +13,7 @@ import org.jsoup.select.Elements;
 import com.api.xyinc.domain.Address;
 public class ParserHtml {
 
-    public List<Address> findHtml(final String urlName){
+    public List<Address> findHtml(String urlName){
         try {
 
             Document html = Jsoup.connect(urlName).get();
@@ -21,7 +21,7 @@ public class ParserHtml {
             List<Address> addressList= new ArrayList<Address>();
 
             if (tr.size() == 0) {
-              return null;
+              return addressList;
 
             } else {
                 for (Element e : tr) {

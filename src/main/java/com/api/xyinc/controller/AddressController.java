@@ -20,13 +20,13 @@ public class AddressController {
     private FindAddressService findAddressService;
 
     @Autowired
-    public AddressController(final FindAddressService findAddressService) {
+    public AddressController(FindAddressService findAddressService) {
         super();
         this.findAddressService = findAddressService;
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/addressByDescription")
-    public @ResponseBody List<Address> getAddressByDescription(final String name) {
+    public @ResponseBody List<Address> getAddressByDescription(String name) {
         Validator.validateParameter(name);
         List<Address> addressList = findAddressService.findByAddress(name);
         return addressList;
@@ -34,7 +34,7 @@ public class AddressController {
 
 
     @RequestMapping(method=RequestMethod.GET, value="/addressByZipCode")
-    public @ResponseBody List<Address> getAddressByZipCode(final String zipCode) {
+    public @ResponseBody List<Address> getAddressByZipCode(String zipCode) {
         Validator.validateParameter(zipCode);
         List<Address> addressList = findAddressService.findByZipCode(zipCode);
         return addressList;

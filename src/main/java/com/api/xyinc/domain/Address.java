@@ -16,7 +16,7 @@ public class Address {
     }
 
 
-    public void setAddressDescription(final String value) {
+    public void setAddressDescription(String value) {
         this.addressDescription = value;
     }
 
@@ -26,7 +26,7 @@ public class Address {
     }
 
 
-    public void setDistrictName(final String value) {
+    public void setDistrictName(String value) {
         this.districtName = value;
     }
 
@@ -36,7 +36,7 @@ public class Address {
     }
 
 
-    public void setCity(final String value) {
+    public void setCity(String value) {
         this.city = value;
     }
 
@@ -46,7 +46,7 @@ public class Address {
     }
 
 
-    public void setState(final String value) {
+    public void setState(String value) {
         this.state = value;
     }
 
@@ -56,7 +56,7 @@ public class Address {
     }
 
 
-    public void setZipCode(final String value) {
+    public void setZipCode(String value) {
         this.zipCode = value;
     }
 

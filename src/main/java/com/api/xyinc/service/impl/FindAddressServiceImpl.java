@@ -13,7 +13,7 @@ import com.api.xyinc.util.ParserHtml;
 public class FindAddressServiceImpl implements FindAddressService {
 
     @Override
-    public List<Address> findByZipCode(final String zipCode) {
+    public List<Address> findByZipCode(String zipCode) {
         String urlName = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS +"?Metodo=listaLogradouro&CEP=" + zipCode + "&TipoConsulta=cep";
         ParserHtml parserHtml = new ParserHtml();
 
@@ -21,7 +21,7 @@ public class FindAddressServiceImpl implements FindAddressService {
     }
 
     @Override
-    public List<Address> findByAddress(final String addressDescription) {
+    public List<Address> findByAddress(String addressDescription) {
         String urlName = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS + "?relaxation=" + addressDescription +
             "&TipoCep=ALL&semelhante=S&cfm=1&Metodo=listaLogradouro&TipoConsulta=relaxation";
 

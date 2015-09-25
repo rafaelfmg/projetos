@@ -7,13 +7,13 @@ import javax.validation.ValidationException;
 import org.apache.commons.lang3.StringUtils;
 
 public class Validator {
-    public static void validateParameter(final String param) {
+    public static void validateParameter(String param) {
         if (StringUtils.isBlank(param)) {
             throw new ValidationException("Parâmetro deve ser informado");
         }
     }
 
-    public static <E> void validateResult(final List<E> result) {
+    public static <E> void validateResult(List<E> result) {
         if (result == null || result.size() == 0) {
             throw new ValidationException("Não foram encontrados registros!");
         }

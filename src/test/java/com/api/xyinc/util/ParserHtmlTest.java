@@ -41,13 +41,13 @@ public class ParserHtmlTest {
     @Test
     public void testFindHtmlUrlAddressNull() {
         String url = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS + "?relaxation=Rondon&TipoCep=ALL&semelhante=S&cfm=1&Metodo=listaLogradouro&TipoConsulta=relaxation";
-        Assert.assertNull(parserHtml.findHtml(url));
+        Assert.assertTrue(parserHtml.findHtml(url).isEmpty());
     }
 
     @Test
     public void testFindHtmlUrlZipCodeNull() {
         String url = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS +"?Metodo=listaLogradouro&CEP=10&TipoConsulta=cep";
-        Assert.assertNull(parserHtml.findHtml(url));
+        Assert.assertTrue(parserHtml.findHtml(url).isEmpty());
     }
 
 
