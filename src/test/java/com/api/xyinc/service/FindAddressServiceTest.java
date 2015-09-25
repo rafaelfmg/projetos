@@ -1,4 +1,4 @@
-package com.apicep.xyinc.service;
+package com.api.xyinc.service;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -28,7 +28,7 @@ public class FindAddressServiceTest {
 
 	private void addressFactory() {
 		addressDescription = "Rondon Pacheco";
-		zipCode = "38408447";
+		zipCode = "38408400";
 	}
 
 	@Test
@@ -40,5 +40,15 @@ public class FindAddressServiceTest {
 	public void testFindByZipCode() {
 		Assert.assertNotNull(service.findByZipCode(zipCode));
 	}
+
+	@Test
+    public void testFindByAddressNotFound() {
+        Assert.assertNotNull(service.findByAddress("pacheco"));
+    }
+
+    @Test
+    public void testFindByZipCodeNotFound() {
+        Assert.assertNotNull(service.findByZipCode("10"));
+    }
 
 }

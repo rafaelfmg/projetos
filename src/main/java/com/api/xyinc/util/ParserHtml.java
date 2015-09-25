@@ -11,8 +11,6 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.api.xyinc.domain.Address;
-import com.api.xyinc.exception.AddressNotFoundException;
-
 public class ParserHtml {
 
     public List<Address> findHtml(final String urlName){
@@ -23,12 +21,7 @@ public class ParserHtml {
             List<Address> addressList= new ArrayList<Address>();
 
             if (tr.size() == 0) {
-               // Elements font = html.select("font");
-                throw new AddressNotFoundException("Endereço não encontrado!");
-                /*for (Element e : font) {
-                    System.out.println("Erro : " + e.text());
-                    break;
-                }*/
+              return null;
 
             } else {
                 for (Element e : tr) {
@@ -47,7 +40,6 @@ public class ParserHtml {
             }
         } catch (IOException e) {
 
-            System.out.println("Jsoup Can read HTML page from URL");
             e.printStackTrace();
         }
 

@@ -11,18 +11,18 @@ import com.api.xyinc.util.ParserHtml;
 
 @Service
 public class FindAddressServiceImpl implements FindAddressService {
-    String urlName = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS;
 
+    @Override
     public List<Address> findByZipCode(final String zipCode) {
-        urlName = urlName + "?Metodo=listaLogradouro&CEP=" + zipCode + "&TipoConsulta=cep";
-
+        String urlName = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS +"?Metodo=listaLogradouro&CEP=" + zipCode + "&TipoConsulta=cep";
         ParserHtml parserHtml = new ParserHtml();
 
         return parserHtml.findHtml(urlName);
     }
 
+    @Override
     public List<Address> findByAddress(final String addressDescription) {
-        urlName = urlName + "?relaxation=" + addressDescription +
+        String urlName = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS + "?relaxation=" + addressDescription +
             "&TipoCep=ALL&semelhante=S&cfm=1&Metodo=listaLogradouro&TipoConsulta=relaxation";
 
         ParserHtml parserHtml = new ParserHtml();
