@@ -32,7 +32,6 @@ public class AddressController {
         return addressList;
     }
 
-
     @RequestMapping(method=RequestMethod.GET, value="/addressByZipCode")
     public @ResponseBody List<Address> getAddressByZipCode(String zipCode) {
         Validator.validateParameter(zipCode);

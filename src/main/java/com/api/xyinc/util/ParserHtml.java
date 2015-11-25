@@ -1,6 +1,5 @@
 package com.api.xyinc.util;
 
-
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,10 +32,8 @@ public class ParserHtml {
                     address.setZipCode(e.child(4).text());
 
                     addressList.add(address);
-
                 }
                 return addressList;
-
             }
         } catch (IOException e) {
             e.printStackTrace();

@@ -19,7 +19,6 @@ public class FindAddressServiceTest {
 	private FindAddressServiceImpl service;
 	@InjectMocks
 	private AddressController controller;
-
 	private String addressDescription;
 	private String zipCode;
 

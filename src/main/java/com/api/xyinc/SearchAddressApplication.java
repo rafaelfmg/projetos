@@ -8,6 +8,5 @@ public class SearchAddressApplication {
 
     public static void main(String[] args) {
          SpringApplication.run(SearchAddressApplication.class, args);
-
     }
 }

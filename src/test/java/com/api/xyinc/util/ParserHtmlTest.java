@@ -10,9 +10,7 @@ public class ParserHtmlTest {
 
     @InjectMocks
     private ParserHtml parserHtml;
-
     private String urlZipCode;
-
     private String urlAddress;
 
     @Before

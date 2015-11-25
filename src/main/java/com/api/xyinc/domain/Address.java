@@ -1,7 +1,6 @@
 package com.api.xyinc.domain;
 
 
-
 public class Address {
 
     protected String addressDescription;

@@ -15,12 +15,10 @@ import com.api.xyinc.service.FindAddressService;
 
 public class AddressControllerTest {
 
-
 	@Mock
 	private FindAddressService service;
 	@InjectMocks
 	private AddressController controller;
-
 	private String addressDescription;
 	private String zipCode;
 
@@ -45,7 +43,6 @@ public class AddressControllerTest {
 	public void testGetAddressByDescriptionWithErrorParam() {
 		controller.getAddressByDescription(null);
 	}
-
 
 	@Test
 	public void testGetAddressByZipCode() {

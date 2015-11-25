@@ -2,7 +2,6 @@ package com.api.xyinc.util;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import javax.validation.ValidationException;
 
 import org.junit.Before;
@@ -17,8 +16,6 @@ public class ValidatorTest {
 
     @InjectMocks
     private Validator validator;
-
-
 
     @Before
     public void setUp() {
