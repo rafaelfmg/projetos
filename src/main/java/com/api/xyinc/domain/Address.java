@@ -5,8 +5,7 @@ public class Address {
 
     protected String addressDescription;
     protected String districtName;
-    protected String city;
-    protected String state;
+    protected String locality;
     protected String zipCode;
 
 
@@ -30,23 +29,13 @@ public class Address {
     }
 
 
-    public String getCity() {
-        return city;
+    public String getLocality() {
+        return locality;
     }
 
 
-    public void setCity(String value) {
-        this.city = value;
-    }
-
-
-    public String getState() {
-        return state;
-    }
-
-
-    public void setState(String value) {
-        this.state = value;
+    public void setLocality(String locality) {
+        this.locality = locality;
     }
 
 

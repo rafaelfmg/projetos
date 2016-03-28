@@ -10,8 +10,11 @@ public class ParserHtmlTest {
 
     @InjectMocks
     private ParserHtml parserHtml;
-    private String urlZipCode;
-    private String urlAddress;
+    private String url;
+    private String zipCode;
+    private String addressDescription;
+    private String cepType;
+    private String similar;
 
     @Before
     public void setUp() {
@@ -20,32 +23,35 @@ public class ParserHtmlTest {
     }
 
     private void urlFactory() {
-        urlZipCode = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS +"?Metodo=listaLogradouro&CEP=38408400&TipoConsulta=cep";
-        urlAddress = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS + "?relaxation=Rondon Pacheco&TipoCep=ALL&semelhante=S&cfm=1&Metodo=listaLogradouro&TipoConsulta=relaxation";
+        url = Constants.URL_CORREIOS;
+        zipCode = "38408400";
+        addressDescription = "Rondon Pacheco";
+        cepType = Constants.ALL;
+        similar = Constants.NAO;
     }
 
     @Test
     public void testFindHtmlUrlZipCode() {
 
-        Assert.assertNotNull(parserHtml.findHtml(urlZipCode));
+        Assert.assertNotNull(parserHtml.findHtml(url,zipCode, cepType, similar));
     }
 
     @Test
     public void testFindHtmlUrlAddress() {
 
-        Assert.assertNotNull(parserHtml.findHtml(urlAddress));
+        Assert.assertNotNull(parserHtml.findHtml(url, addressDescription, cepType, similar));
     }
 
     @Test
     public void testFindHtmlUrlAddressNull() {
-        String url = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS + "?relaxation=Rondon&TipoCep=ALL&semelhante=S&cfm=1&Metodo=listaLogradouro&TipoConsulta=relaxation";
-        Assert.assertTrue(parserHtml.findHtml(url).isEmpty());
+        addressDescription = "zup";
+        Assert.assertTrue(parserHtml.findHtml(url, addressDescription, cepType, similar).isEmpty());
     }
 
     @Test
     public void testFindHtmlUrlZipCodeNull() {
-        String url = Constants.URL_CORREIOS + Constants.ACTION_CORREIOS +"?Metodo=listaLogradouro&CEP=10&TipoConsulta=cep";
-        Assert.assertTrue(parserHtml.findHtml(url).isEmpty());
+        zipCode = "98998555";
+        Assert.assertTrue(parserHtml.findHtml(url,zipCode, cepType, similar).isEmpty());
     }
 
 

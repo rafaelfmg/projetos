@@ -10,34 +10,38 @@ import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
 import com.api.xyinc.domain.Address;
+
 public class ParserHtml {
 
-    public List<Address> findHtml(String urlName){
+    public List<Address> findHtml(String urlName, String relaxation, String cepType, String similar) {
+        Document html;
         try {
+            html = Jsoup.connect(urlName).data("relaxation", relaxation).data("tipoCEP", cepType)
+                .data("semelhante", similar).post();
 
-            Document html = Jsoup.connect(urlName).get();
-            Elements tr = html.select("tr[style]");
-            List<Address> addressList= new ArrayList<Address>();
+            Elements tr = html.select("tr");
+            List<Address> addressList = new ArrayList<Address>();
 
             if (tr.size() == 0) {
-              return addressList;
-
-            } else {
-                for (Element e : tr) {
-                    Address address = new Address();
-                    address.setAddressDescription(e.child(0).text());
-                    address.setDistrictName(e.child(1).text());
-                    address.setCity(e.child(2).text());
-                    address.setState(e.child(3).text());
-                    address.setZipCode(e.child(4).text());
-
-                    addressList.add(address);
-                }
                 return addressList;
+
             }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+            tr.remove(0);
+            for (Element e : tr) {
+                Address address = new Address();
+                address.setAddressDescription(e.child(0).text());
+                address.setDistrictName(e.child(1).text());
+                address.setLocality(e.child(2).text());
+                address.setZipCode(e.child(3).text());
+
+                addressList.add(address);
+            }
+            return addressList;
+
+        } catch (IOException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }// .get();
 
         return null;
     }
