@@ -28,6 +28,6 @@ http://localhost:8080/searchAddress/addressByZipCode?zipCode=38408400
 
 Busca de endereço pelo logradouro:
 
-http://localhost:8080/searchAddress/addressByDescription?name=Rondon%20pacheco
+http://localhost:8080/searchAddress/addressByDescription?name=Rondon pacheco
 
 O retorno de ambos os serviços pode ser um único endereço ou uma lista de endereços, dependendo da informação passada.
