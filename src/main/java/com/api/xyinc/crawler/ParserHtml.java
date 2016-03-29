@@ -1,21 +1,22 @@
-package com.api.xyinc.util;
+package com.api.xyinc.crawler;
 
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.api.xyinc.domain.Address;
 
 public class ParserHtml {
 
-    Logger logger;
+    private static final Logger LOGGER = LoggerFactory.getLogger(ParserHtml.class);
+    List<Address> addressList = new ArrayList<>();
 
     public List<Address> findHtml(String urlName, String relaxation, String cepType, String similar) {
         Document html;
@@ -24,7 +25,6 @@ public class ParserHtml {
                 .data("semelhante", similar).post();
 
             Elements tr = html.select("tr");
-            List<Address> addressList = new ArrayList<>();
 
             if (tr.isEmpty()) {
                 return addressList;
@@ -40,12 +40,11 @@ public class ParserHtml {
 
                 addressList.add(address);
             }
-            return addressList;
 
-        } catch (IOException e1) {
-            logger.log(Level.WARNING, "context", e1);
+        } catch (IOException e) {
+            LOGGER.error(e.getMessage(), e);
         }
 
-        return new ArrayList<>();
+        return addressList;
     }
 }

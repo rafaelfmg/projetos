@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
+import com.api.xyinc.crawler.ParserHtml;
+
 public class ParserHtmlTest {
 
     @InjectMocks
