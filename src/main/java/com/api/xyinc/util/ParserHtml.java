@@ -3,6 +3,8 @@ package com.api.xyinc.util;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
@@ -13,6 +15,8 @@ import com.api.xyinc.domain.Address;
 
 public class ParserHtml {
 
+    Logger logger;
+
     public List<Address> findHtml(String urlName, String relaxation, String cepType, String similar) {
         Document html;
         try {
@@ -20,9 +24,9 @@ public class ParserHtml {
                 .data("semelhante", similar).post();
 
             Elements tr = html.select("tr");
-            List<Address> addressList = new ArrayList<Address>();
+            List<Address> addressList = new ArrayList<>();
 
-            if (tr.size() == 0) {
+            if (tr.isEmpty()) {
                 return addressList;
 
             }
@@ -39,10 +43,9 @@ public class ParserHtml {
             return addressList;
 
         } catch (IOException e1) {
-            // TODO Auto-generated catch block
-            e1.printStackTrace();
-        }// .get();
+            logger.log(Level.WARNING, "context", e1);
+        }
 
-        return null;
+        return new ArrayList<>();
     }
 }

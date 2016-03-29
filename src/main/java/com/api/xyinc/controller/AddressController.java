@@ -26,17 +26,15 @@ public class AddressController {
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/addressByDescription")
-    public @ResponseBody List<Address> getAddressByDescription(String name) {
+    @ResponseBody public  List<Address> getAddressByDescription(String name) {
         Validator.validateParameter(name);
-        List<Address> addressList = findAddressService.findByAddress(name);
-        return addressList;
+        return findAddressService.findByAddress(name);
     }
 
     @RequestMapping(method=RequestMethod.GET, value="/addressByZipCode")
-    public @ResponseBody List<Address> getAddressByZipCode(String zipCode) {
+    @ResponseBody public List<Address> getAddressByZipCode(String zipCode) {
         Validator.validateParameter(zipCode);
-        List<Address> addressList = findAddressService.findByZipCode(zipCode);
-        return addressList;
+        return findAddressService.findByZipCode(zipCode);
     }
 
 }
