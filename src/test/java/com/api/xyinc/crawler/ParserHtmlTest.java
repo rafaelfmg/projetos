@@ -1,4 +1,4 @@
-package com.api.xyinc.util;
+package com.api.xyinc.crawler;
 
 import org.junit.Assert;
 import org.junit.Before;
@@ -7,6 +7,7 @@ import org.mockito.InjectMocks;
 import org.mockito.MockitoAnnotations;
 
 import com.api.xyinc.crawler.ParserHtml;
+import com.api.xyinc.util.Constants;
 
 public class ParserHtmlTest {
 
